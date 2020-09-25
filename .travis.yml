@@ -8,5 +8,8 @@ cache: npm
 install:
   - npm install
 
+after_script:
+  - npm run publish-coverage
+
 script:
   - npm test
