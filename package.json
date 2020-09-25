@@ -12,6 +12,10 @@
     "cli"
   ],
   "main": "src/index.js",
+  "files": [
+    "bin",
+    "src"
+  ],
   "homepage": "https://github.com/AdrieanKhisbe/emojiless#readme",
   "repository": {
     "type": "git",
