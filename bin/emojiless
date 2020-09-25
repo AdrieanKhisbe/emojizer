@@ -1,3 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env node
 
-echo "Sorry, not yet there"
+const {main} = require('..');
+main();

@@ -29,7 +29,10 @@
   "engines": {
     "node": ">=10.20.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gemoji": "^5.0.1",
+    "pump": "^3.0.0"
+  },
   "devDependencies": {
     "@-k/eslint-plugin": "^0.4.1",
     "ava": "^3.12.1",
