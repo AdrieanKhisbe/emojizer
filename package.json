@@ -1,0 +1,44 @@
+{
+  "name": "emojiless",
+  "version": "0.0.1",
+  "description": "Less with github emojies decoded :wink:",
+  "author": "Adriean Khisbe <adriean.khisbe@live.fr> (https://github.com/AdrieanKhisbe/)",
+  "license": "MIT",
+  "keywords": [
+    "emoji",
+    "gemoji",
+    "less"
+  ],
+  "main": "src/index.js",
+  "homepage": "https://github.com/AdrieanKhisbe/emojiless#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrieanKhisbe/emojiless.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AdrieanKhisbe/emojiless/issues"
+  },
+  "bin": {
+    "emojiless": "./bin/emojiless"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test:unit": "ava",
+    "test": "npm run lint && npm run test:unit"
+  },
+  "engines": {
+    "node": ">=10.20.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@-k/eslint-plugin": "^0.4.1",
+    "ava": "^3.12.1",
+    "eslint": "^7.9.0",
+    "lodash": "^4.17.20"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ]
+  }
+}
