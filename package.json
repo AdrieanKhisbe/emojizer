@@ -24,7 +24,7 @@
     "emojiless": "./bin/emojiless"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint src bin/emojiless test",
     "test:unit": "ava",
     "test": "npm run lint && nyc npm run test:unit",
     "publish-coverage": "codecov"
