@@ -4,7 +4,7 @@ const test = require('ava');
 
 const EMOJIIZER_CLI = path.join(path.dirname(__dirname), 'bin', 'emojizer');
 
-test.cb('emojizer cli', t => {
+test.cb('emojizer cli stdin', t => {
   childProcess.exec(
     `echo "shell is here :ocean: :shell:" | ${EMOJIIZER_CLI}`,
     (code, stdout, stderr) => {
@@ -13,4 +13,12 @@ test.cb('emojizer cli', t => {
       t.end();
     }
   );
+});
+
+test.cb('emojizer cli provided values', t => {
+  childProcess.exec(`${EMOJIIZER_CLI} "lol :+1:" ":-1:"`, (code, stdout, stderr) => {
+    t.is(stderr.trim(), '');
+    t.is(stdout.trim(), 'lol 👍\n👎');
+    t.end();
+  });
 });

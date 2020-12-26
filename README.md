@@ -15,6 +15,8 @@ echo "Something with emojies :upside_down_face:" | emojizer
 # Something with emojies 🙃
 
 echo "Insert before your pager :pager:" | emojizer | less
+
+emojizer "String" "with or without" "emojies :slightly_smiling_face:"
 ```
 
 Using zsh, you can for instance define a global alias that combine `emojizer` and `less` or the pager you use.

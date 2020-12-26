@@ -1,9 +1,11 @@
 const {Transform} = require('stream');
+const _ = require('lodash/fp');
 const pump = require('pump');
 const emojiIndex = require('gemoji/name-to-emoji.json');
 const yargs = require('yargs/yargs');
 
 const EMOJI_REGEX = /(:[^\s:]+:)/g;
+const ENCODING = 'utf-8';
 
 const parseArgs = argz =>
   yargs(argz)
@@ -32,7 +34,7 @@ const splitAndReplaceEmojies = (string, accumulator = null) => {
 const getEmojizerStream = () =>
   new Transform({
     transform(chunk, encoding, cb) {
-      splitAndReplaceEmojies(chunk.toString('utf-8'), this);
+      splitAndReplaceEmojies(chunk.toString(ENCODING), this);
       cb();
     }
   });
@@ -40,11 +42,20 @@ const getEmojizerStream = () =>
 const replaceEmojiCodes = string => splitAndReplaceEmojies(string).join('');
 
 const main = (input = process.stdin, output = process.stdout) => {
-  // eslint-disable-next-line no-unused-vars
   const args = parseArgs(process.argv.slice(2));
-  input.setEncoding('utf8');
-  output.setEncoding('utf8');
-  pump(input, getEmojizerStream(), output);
+  output.setEncoding(ENCODING);
+
+  if (_.isEmpty(args._)) {
+    input.setEncoding(ENCODING);
+    return pump(input, getEmojizerStream(), output);
+  }
+
+  for (const item of args._) {
+    for (const transformedPart of splitAndReplaceEmojies(item)) {
+      output.write(transformedPart);
+    }
+    output.write('\n');
+  }
 };
 
 module.exports = {replaceEmojiCodes, splitAndReplaceEmojies, getEmojizerStream, main};
