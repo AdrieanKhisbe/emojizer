@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "gemoji": "^6.1.0",
-    "pump": "^3.0.0"
+    "pump": "^3.0.0",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@-k/eslint-plugin": "^0.4.1",
