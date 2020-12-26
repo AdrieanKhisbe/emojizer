@@ -21,7 +21,7 @@ const splitAndReplaceEmojies = (string, accumulator = null) => {
   if (!accumulator) return acc;
 };
 
-const getEmojilessStream = () =>
+const getEmojizerStream = () =>
   new Transform({
     transform(chunk, encoding, cb) {
       splitAndReplaceEmojies(chunk.toString('utf-8'), this);
@@ -34,7 +34,7 @@ const replaceEmojiCodes = string => splitAndReplaceEmojies(string).join('');
 const main = (input = process.stdin, output = process.stdout) => {
   input.setEncoding('utf8');
   output.setEncoding('utf8');
-  pump(input, getEmojilessStream(), output);
+  pump(input, getEmojizerStream(), output);
 };
 
-module.exports = {replaceEmojiCodes, splitAndReplaceEmojies, getEmojilessStream, main};
+module.exports = {replaceEmojiCodes, splitAndReplaceEmojies, getEmojizerStream, main};

@@ -1,7 +1,7 @@
 {
-  "name": "emojiless",
-  "version": "0.1.1",
-  "description": "Less with github emojies decoded :wink:",
+  "name": "emojizer",
+  "version": "0.1.0",
+  "description": "Decode your github emoji codes :wink:",
   "author": "Adriean Khisbe <adriean.khisbe@live.fr> (https://github.com/AdrieanKhisbe/)",
   "license": "MIT",
   "keywords": [
@@ -16,19 +16,19 @@
     "bin",
     "src"
   ],
-  "homepage": "https://github.com/AdrieanKhisbe/emojiless#readme",
+  "homepage": "https://github.com/AdrieanKhisbe/emojizer#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdrieanKhisbe/emojiless.git"
+    "url": "git+https://github.com/AdrieanKhisbe/emojizer.git"
   },
   "bugs": {
-    "url": "https://github.com/AdrieanKhisbe/emojiless/issues"
+    "url": "https://github.com/AdrieanKhisbe/emojizer/issues"
   },
   "bin": {
-    "emojiless": "./bin/emojiless"
+    "emojizer": "./bin/emojizer"
   },
   "scripts": {
-    "lint": "eslint src bin/emojiless test",
+    "lint": "eslint src bin/emojizer test",
     "test:unit": "ava",
     "test": "npm run lint && nyc npm run test:unit",
     "publish-coverage": "codecov"
