@@ -1,7 +1,7 @@
 {
   "name": "emojiless",
-  "version": "0.1.1",
-  "description": "Less with github emojies decoded :wink:",
+  "version": "0.1.2",
+  "description": "DEPRACATED use emojizer instead (Less with github emojies decoded :wink:)",
   "author": "Adriean Khisbe <adriean.khisbe@live.fr> (https://github.com/AdrieanKhisbe/)",
   "license": "MIT",
   "keywords": [
@@ -16,13 +16,13 @@
     "bin",
     "src"
   ],
-  "homepage": "https://github.com/AdrieanKhisbe/emojiless#readme",
+  "homepage": "https://github.com/AdrieanKhisbe/emojizer#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdrieanKhisbe/emojiless.git"
+    "url": "git+https://github.com/AdrieanKhisbe/emojizer.git"
   },
   "bugs": {
-    "url": "https://github.com/AdrieanKhisbe/emojiless/issues"
+    "url": "https://github.com/AdrieanKhisbe/emojizer/issues"
   },
   "bin": {
     "emojiless": "./bin/emojiless"

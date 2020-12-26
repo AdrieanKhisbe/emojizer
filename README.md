@@ -1,5 +1,11 @@
 # emojiless
 
+> **:rotating_light:  WARNING :rotating_light:**
+>
+> Emojiless was renamed as **[emojizer](https://www.npmjs.com/package/emojizer)**.
+> `emojiless` won't be updated so use **[`emojizer`](https://www.npmjs.com/package/emojizer)** instead :heavy_exclamation_mark:
+
+
 > Less is more with emojies :wink:
 
 [![Npm version](https://img.shields.io/npm/v/emojiless.svg)](https://www.npmjs.com/package/emojiless)
