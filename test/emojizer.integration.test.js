@@ -55,8 +55,8 @@ test.cb('emojizer cli with missing file', t => {
 
 test.cb('emojizer cli with file list', t => {
   childProcess.exec(
-    `${EMOJIIZER_CLI} -f data/test-{one,two,three}.txt`,
-    {cwd: __dirname, shell: true},
+    `${EMOJIIZER_CLI} -f data/test-one.txt data/test-two.txt data/test-three.txt`,
+    {cwd: __dirname},
     (err, stdout, stderr) => {
       t.is(err, null);
       t.is(stderr.trim(), '');
