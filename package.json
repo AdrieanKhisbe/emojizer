@@ -25,6 +25,7 @@
     "url": "https://github.com/AdrieanKhisbe/emojizer/issues"
   },
   "bin": {
+    "emojize": "./bin/emojizer",
     "emojizer": "./bin/emojizer"
   },
   "scripts": {
