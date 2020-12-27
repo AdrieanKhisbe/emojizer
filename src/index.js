@@ -43,10 +43,8 @@ const replaceEmojiCodes = string => splitAndReplaceEmojies(string).join('');
 
 const main = (input = process.stdin, output = process.stdout) => {
   const args = parseArgs(process.argv.slice(2));
-  output.setEncoding(ENCODING);
 
   if (_.isEmpty(args._)) {
-    input.setEncoding(ENCODING);
     return pump(input, getEmojizerStream(), output);
   }
 
