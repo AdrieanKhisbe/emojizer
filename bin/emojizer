@@ -2,4 +2,10 @@
 
 const {main} = require('..');
 
-main();
+try {
+  main();
+} catch (err) {
+  // note: this only cover initialisation errors
+  console.error(err.message);
+  process.exit(1);
+}

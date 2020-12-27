@@ -38,6 +38,21 @@ test.cb('emojizer cli with single file', t => {
   );
 });
 
+test.cb('emojizer cli with missing file', t => {
+  childProcess.exec(
+    `${EMOJIIZER_CLI} -f data/test-AWOL.txt`,
+    {cwd: __dirname},
+    (err, stdout, stderr) => {
+      t.not(err, null);
+      t.is(err.killed, false);
+      t.is(err.code, 1);
+      t.is(stderr.trim(), "Provided file path does not exists: 'data/test-AWOL.txt'");
+      t.is(stdout.trim(), '');
+      t.end();
+    }
+  );
+});
+
 test.cb('emojizer cli with file list', t => {
   childProcess.exec(
     `${EMOJIIZER_CLI} -f data/test-{one,two,three}.txt`,

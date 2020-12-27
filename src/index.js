@@ -45,6 +45,12 @@ const splitAndReplaceEmojies = (string, accumulator = null) => {
   if (!accumulator) return acc;
 };
 
+const createReadStream = filePath => {
+  if (!fs.existsSync(filePath))
+    throw new Error(`Provided file path does not exists: '${filePath}'`);
+  return fs.createReadStream(filePath, {encoding: ENCODING});
+};
+
 const getEmojizerStream = () =>
   new Transform({
     transform(chunk, encoding, cb) {
@@ -64,10 +70,8 @@ const main = (stdin = process.stdin, stdout = process.stdout) => {
   if (args.file) {
     const inputStream =
       _.size(args._) === 1
-        ? fs.createReadStream(args._[0], {encoding: ENCODING})
-        : new MultiStream(
-            args._.map(filePath => fs.createReadStream(filePath, {encoding: ENCODING}))
-          );
+        ? createReadStream(args._[0])
+        : new MultiStream(args._.map(createReadStream));
     return pump(inputStream, getEmojizerStream(), stdout);
   }
 
