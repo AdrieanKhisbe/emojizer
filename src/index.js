@@ -1,6 +1,8 @@
 const {Transform} = require('stream');
+const fs = require('fs');
 const _ = require('lodash/fp');
 const pump = require('pump');
+const MultiStream = require('multistream');
 const emojiIndex = require('gemoji/name-to-emoji.json');
 const yargs = require('yargs/yargs');
 
@@ -10,8 +12,20 @@ const ENCODING = 'utf-8';
 const parseArgs = argz =>
   yargs(argz)
     .usage(
-      'Replace your emoji codes.\n\nUsage: cat something | $0\n       $0 "text with :slightly_smiling_face:"'
+      `Replace your emoji codes with Real emojies 😉
+
+Usage:
+        cat something | $0
+        $0 "text with :slightly_smiling_face:" ":wink:"
+        $0 -f README.md
+`
     )
+    .option('file', {
+      alias: 'f',
+      description: 'Treat args as file to read from',
+      boolean: true,
+      default: false
+    })
     .alias('h', 'help').argv;
 
 const splitAndReplaceEmojies = (string, accumulator = null) => {
@@ -41,18 +55,27 @@ const getEmojizerStream = () =>
 
 const replaceEmojiCodes = string => splitAndReplaceEmojies(string).join('');
 
-const main = (input = process.stdin, output = process.stdout) => {
+const main = (stdin = process.stdin, stdout = process.stdout) => {
   const args = parseArgs(process.argv.slice(2));
 
   if (_.isEmpty(args._)) {
-    return pump(input, getEmojizerStream(), output);
+    return pump(stdin, getEmojizerStream(), stdout);
+  }
+  if (args.file) {
+    const inputStream =
+      _.size(args._) === 1
+        ? fs.createReadStream(args._[0], {encoding: ENCODING})
+        : new MultiStream(
+            args._.map(filePath => fs.createReadStream(filePath, {encoding: ENCODING}))
+          );
+    return pump(inputStream, getEmojizerStream(), stdout);
   }
 
   for (const item of args._) {
     for (const transformedPart of splitAndReplaceEmojies(item)) {
-      output.write(transformedPart);
+      stdout.write(transformedPart);
     }
-    output.write('\n');
+    stdout.write('\n');
   }
 };
 

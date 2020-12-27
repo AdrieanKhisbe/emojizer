@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "gemoji": "^6.1.0",
+    "multistream": "^4.0.1",
     "pump": "^3.0.0",
     "yargs": "^16.2.0"
   },
