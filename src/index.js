@@ -12,17 +12,17 @@ const ENCODING = 'utf-8';
 const parseArgs = argz =>
   yargs(argz)
     .usage(
-      `Replace your emoji codes with Real emojies 😉
+      `Replace your emoji codes with "real" emojies 😉
 
 Usage:
-        cat something | $0
-        $0 "text with :slightly_smiling_face:" ":wink:"
-        $0 -f README.md
+    cat something | $0
+    $0 "text with :slightly_smiling_face:" ":wink:"
+    $0 -f README.md
 `
     )
     .option('file', {
       alias: 'f',
-      description: 'Treat args as file to read from',
+      description: 'Treat args as files to read from',
       boolean: true,
       default: false
     })
@@ -83,4 +83,10 @@ const main = (stdin = process.stdin, stdout = process.stdout) => {
   }
 };
 
-module.exports = {replaceEmojiCodes, splitAndReplaceEmojies, getEmojizerStream, main};
+module.exports = {
+  replaceEmojiCodes,
+  splitAndReplaceEmojies,
+  getEmojizerStream,
+  emojiIndex,
+  main
+};
