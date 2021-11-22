@@ -35,7 +35,7 @@
     "publish-coverage": "codecov"
   },
   "engines": {
-    "node": ">=10.20.0"
+    "node": ">=12.13"
   },
   "dependencies": {
     "gemoji": "^6.1.0",
