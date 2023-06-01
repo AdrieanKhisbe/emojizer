@@ -7,5 +7,13 @@
     },
     "rules": {
         "import/extensions": "off"
-    }
+    },
+    "overrides": [
+        {
+            "files": "test/**/*.js",
+            "rules": {
+                "import/no-unresolved": "off"
+            }
+        }
+    ]
 }
