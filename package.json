@@ -42,7 +42,7 @@
     "node": ">=12.13"
   },
   "dependencies": {
-    "gemoji": "^7.1.0",
+    "gemoji": "^8.1.0",
     "lodash": "^4.17.21",
     "multistream": "^4.1.0",
     "pump": "^3.0.0",
