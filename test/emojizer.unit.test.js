@@ -1,5 +1,5 @@
-const test = require('ava');
-const {replaceEmojiCodes} = require('..');
+import test from 'ava';
+import {replaceEmojiCodes} from '../src/emojilib.js';
 
 test('parse a string with emoji', t => {
   t.is(replaceEmojiCodes('Nothing to see here'), 'Nothing to see here');

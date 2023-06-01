@@ -1,8 +1,10 @@
-const path = require('path');
-const childProcess = require('child_process');
-const test = require('ava');
+import path from 'path';
+import {fileURLToPath} from 'url';
+import childProcess from 'child_process';
+import test from 'ava';
 
-const EMOJIIZER_CLI = path.join(path.dirname(__dirname), 'bin', 'emojizer');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const EMOJIIZER_CLI = path.join(path.dirname(__dirname), 'bin', 'emojizer.js');
 
 test.cb('emojizer cli stdin', t => {
   childProcess.exec(

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const {main} = require('..');
+import {main} from '../src/emojilib.js';
 
 try {
   main();

@@ -1,15 +1,15 @@
-const {Transform} = require('stream');
-const fs = require('fs');
-const _ = require('lodash/fp');
-const pump = require('pump');
-const MultiStream = require('multistream');
-const emojiIndex = require('gemoji/name-to-emoji.json');
-const yargs = require('yargs/yargs');
+import {Transform} from 'stream';
+import fs from 'fs';
+import _ from 'lodash/fp.js';
+import pump from 'pump';
+import MultiStream from 'multistream';
+import {nameToEmoji as emojiIndex} from 'gemoji';
+import yargs from 'yargs';
 
-const EMOJI_REGEX = /(:[^\s:]+:)/g;
-const ENCODING = 'utf-8';
+export const EMOJI_REGEX = /(:[^\s:]+:)/g;
+export const ENCODING = 'utf-8';
 
-const parseArgs = argz =>
+export const parseArgs = argz =>
   yargs(argz)
     .usage(
       `Replace your emoji codes with "real" emojies 😉
@@ -28,7 +28,7 @@ Usage:
     })
     .alias('h', 'help').argv;
 
-const splitAndReplaceEmojies = (string, accumulator = null) => {
+export const splitAndReplaceEmojies = (string, accumulator = null) => {
   const parts = string.split(EMOJI_REGEX);
 
   const acc = accumulator || [];
@@ -45,13 +45,13 @@ const splitAndReplaceEmojies = (string, accumulator = null) => {
   if (!accumulator) return acc;
 };
 
-const createReadStream = filePath => {
+export const createReadStream = filePath => {
   if (!fs.existsSync(filePath))
     throw new Error(`Provided file path does not exists: '${filePath}'`);
   return fs.createReadStream(filePath, {encoding: ENCODING});
 };
 
-const getEmojizerStream = () =>
+export const getEmojizerStream = () =>
   new Transform({
     transform(chunk, encoding, cb) {
       splitAndReplaceEmojies(chunk.toString(ENCODING), this);
@@ -59,9 +59,9 @@ const getEmojizerStream = () =>
     }
   });
 
-const replaceEmojiCodes = string => splitAndReplaceEmojies(string).join('');
+export const replaceEmojiCodes = string => splitAndReplaceEmojies(string).join('');
 
-const main = (stdin = process.stdin, stdout = process.stdout) => {
+export const main = (stdin = process.stdin, stdout = process.stdout) => {
   const args = parseArgs(process.argv.slice(2));
 
   if (_.isEmpty(args._)) {
@@ -81,12 +81,4 @@ const main = (stdin = process.stdin, stdout = process.stdout) => {
     }
     stdout.write('\n');
   }
-};
-
-module.exports = {
-  replaceEmojiCodes,
-  splitAndReplaceEmojies,
-  getEmojizerStream,
-  emojiIndex,
-  main
 };

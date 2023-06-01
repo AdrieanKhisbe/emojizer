@@ -4,6 +4,10 @@
   "description": "Decode your github emoji codes :wink:",
   "author": "Adriean Khisbe <adriean.khisbe@live.fr> (https://github.com/AdrieanKhisbe/)",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/emojilib.js"
+  },
   "keywords": [
     "emoji",
     "gemoji",
@@ -11,7 +15,7 @@
     "shell",
     "cli"
   ],
-  "main": "src/index.js",
+  "main": "src/emojilib.js",
   "files": [
     "bin",
     "src"
@@ -25,11 +29,11 @@
     "url": "https://github.com/AdrieanKhisbe/emojizer/issues"
   },
   "bin": {
-    "emojize": "./bin/emojizer",
-    "emojizer": "./bin/emojizer"
+    "emojize": "./bin/emojizer.js",
+    "emojizer": "./bin/emojizer.js"
   },
   "scripts": {
-    "lint": "eslint src bin/emojizer test",
+    "lint": "eslint src bin/*.js test",
     "test:unit": "ava",
     "test": "npm run lint && nyc npm run test:unit",
     "publish-coverage": "codecov"
@@ -38,17 +42,17 @@
     "node": ">=12.13"
   },
   "dependencies": {
-    "gemoji": "^6.1.0",
-    "lodash": "^4.17.20",
-    "multistream": "^4.0.1",
+    "gemoji": "^7.1.0",
+    "lodash": "^4.17.21",
+    "multistream": "^4.1.0",
     "pump": "^3.0.0",
-    "yargs": "^16.2.0"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@-k/eslint-plugin": "^0.4.1",
-    "ava": "^3.14.0",
-    "codecov": "^3.8.1",
-    "eslint": "^7.16.0",
+    "@-k/eslint-plugin": "^0.5.0",
+    "ava": "^3.15.0",
+    "codecov": "^3.8.2",
+    "eslint": "^8.3.0",
     "nyc": "^15.1.0"
   },
   "ava": {
