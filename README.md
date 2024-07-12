@@ -1,7 +1,7 @@
 # emojizer
 
 [![Npm version](https://img.shields.io/npm/v/emojizer.svg)](https://www.npmjs.com/package/emojizer)
-[![Build Status](https://travis-ci.com/AdrieanKhisbe/emojizer.svg?branch=master)](https://travis-ci.com/AdrieanKhisbe/emojizer)
+[![Build Status](https://github.com/AdrieanKhisbe/emojizer/actions/workflows/ci.yml/badge.svg)](https://github.com/AdrieanKhisbe/emojizer/actions)
 [![codecov](https://codecov.io/gh/AdrieanKhisbe/emojizer/branch/master/graph/badge.svg)](https://codecov.io/gh/AdrieanKhisbe/emojizer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
