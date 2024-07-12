@@ -33,6 +33,7 @@
     "emojizer": "./bin/emojizer.js"
   },
   "scripts": {
+    "start": "./bin/emojizer.js",
     "lint": "eslint src bin/*.js test",
     "test:unit": "ava",
     "test": "npm run lint && nyc npm run test:unit",
