@@ -36,8 +36,7 @@
     "start": "./bin/emojizer.js",
     "lint": "eslint src bin/*.js test",
     "test:unit": "ava",
-    "test": "npm run lint && c8 npm run test:unit",
-    "publish-coverage": "codecov"
+    "test": "npm run lint && c8 npm run test:unit"
   },
   "engines": {
     "node": ">=18.18"
@@ -53,7 +52,6 @@
     "@-k/eslint-plugin": "^0.5.0",
     "ava": "^4.3.3",
     "c8": "^10.1.2",
-    "codecov": "^3.8.2",
     "eslint": "^8.57.1"
   },
   "ava": {
