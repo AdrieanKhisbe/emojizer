@@ -44,9 +44,9 @@
   },
   "dependencies": {
     "gemoji": "^8.1.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.18.1",
     "multistream": "^4.1.0",
-    "pump": "^3.0.3",
+    "pump": "^3.0.4",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
