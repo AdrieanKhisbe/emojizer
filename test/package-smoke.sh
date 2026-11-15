@@ -10,5 +10,8 @@ npm pack . --pack-destination "$temp_dir" >/dev/null
 cd "$temp_dir"
 npm install --ignore-scripts --no-audit --no-fund ./emojizer-*.tgz
 node --input-type=module -e "import {replaceEmojiCodes} from 'emojizer'; if (replaceEmojiCodes(':wink:') !== '😉') process.exit(1)"
-test "$(./node_modules/.bin/emojizer ':wink:')" = '😉'
-test "$(./node_modules/.bin/emojize ':wink:')" = '😉'
+printf '😉\n' > expected-output
+./node_modules/.bin/emojizer ':wink:' > actual-output
+cmp expected-output actual-output
+./node_modules/.bin/emojize ':wink:' > actual-output
+cmp expected-output actual-output
