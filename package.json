@@ -40,7 +40,7 @@
     "test": "npm run lint && c8 npm run test:unit && c8 npm run test:e2e"
   },
   "engines": {
-    "node": ">=18.18"
+    "node": ">=22.20"
   },
   "dependencies": {
     "gemoji": "^8.1.0",
