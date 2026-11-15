@@ -5,6 +5,9 @@
         "ecmaVersion": 2020,
         "sourceType": "module"
     },
+    "settings": {
+        "import/ignore": ["node_modules/yargs/index\\.mjs$"]
+    },
     "rules": {
         "import/extensions": "off"
     },

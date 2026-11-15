@@ -17,6 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y zsh
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
