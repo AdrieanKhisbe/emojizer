@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/AdrieanKhisbe/emojizer/branch/master/graph/badge.svg)](https://codecov.io/gh/AdrieanKhisbe/emojizer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> Turn your :emoji_codes: into thier emoji character :wink:
+> Turn your :emoji_codes: into their emoji characters :wink:
 
 ## About
 **`emojizer`** is a program filter that turn github emoji codes into associated character.
@@ -70,10 +70,10 @@ Internal replacing logic is exposed and so functionality can be reuse.
 Provided API is so far limited, but it expose:
 - a function to replace emoji code with corresponding emoji caracter: `replaceEmojiCodes`
 - a function to create a `Transform` stream: `getEmojizerStream`
-- the `emojiIndex` used internaly and provided by the **[`gemoji`](https://github.com/wooorm/gemoji)** library (`emoji/name-to-emoji.json`)
+- emoji data is provided by the **[`gemoji`](https://github.com/wooorm/gemoji)** library
 
 ```js
-const {replaceEmojiCodes} = require('emojizer');
+import {replaceEmojiCodes} from 'emojizer';
 
 console.log(replaceEmojiCodes('some text with :symbols:'));
 

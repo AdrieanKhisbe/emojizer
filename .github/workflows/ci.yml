@@ -14,13 +14,18 @@ jobs:
           - 18.x
           - 20.x
           - 22.x
+          - 24.x
+          - 26.x
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
       - run: npm ci
+      - run: npm test
+      - run: sh test/package-smoke.sh
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
